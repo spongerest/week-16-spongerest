@@ -22,7 +22,7 @@
     "prisma": "^5.4.2"
   },
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "node app.js",
     "make_perm": "node ./command/make_perm.js",
     "test": "jest"
   }
