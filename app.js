@@ -11,7 +11,17 @@ const mongoose = require("mongoose")
 const { loginLimiter } = require ('./middleware/ratelimit.js')
 require("dotenv").config()
 
-mongoose.connect(process.env.MONGO_URL).then(() => console.log("Connected MongoDB.")).catch(err => console.error("Not Connected",err));
+const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(process.env.MONGO_URL);
+    console.log(`MongoDB Connected: ${conn.connection.host}`);
+  } catch (error) {
+    console.log(error);
+    process.exit(1);
+  }
+}
+
+// mongoose.connect(process.env.MONGO_URL).then(() => console.log("Connected MongoDB.")).catch(err => console.error("Not Connected",err));
 
 applyMiddleware(app)
 
@@ -87,8 +97,14 @@ app.get('./adminuser', permissions.is_superuser, async (req,res) => {
     res.json(user)
 })
 
-const server = app.listen(3000, () => {
-    console.log('App Running at https://delightful-red-cap.cyclic.app')
+const server = connectDB().then(() => {
+    app.listen(www.delightful-red-cap.cyclic.app || 3000, () => {
+        console.log("listening for requests");
+    })
 })
+
+// const server = app.listen(3000, () => {
+//     console.log('App Running at https://delightful-red-cap.cyclic.app')
+// })
 
 module.exports = server
