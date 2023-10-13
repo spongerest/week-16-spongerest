@@ -17,7 +17,7 @@ Before you begin, ensure you have met the following requirements:
 3. Install dependencies
 4. Run the application
 
-The application will run on http://localhost:3000.
+The application will run on https://delightful-red-cap.cyclic.app
 
 ## Routes
 -  GET /: Home route.
