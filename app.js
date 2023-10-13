@@ -87,7 +87,7 @@ app.get('./adminuser', permissions.is_superuser, async (req,res) => {
     res.json(user)
 })
 
-const server = app.listen(https://delightful-red-cap.cyclic.app, () => {
+const server = app.listen(3000, () => {
     console.log('App Running at https://delightful-red-cap.cyclic.app')
 })
 
