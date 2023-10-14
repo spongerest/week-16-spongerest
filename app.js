@@ -98,7 +98,7 @@ app.get('./adminuser', permissions.is_superuser, async (req,res) => {
 })
 
 const server = connectDB().then(() => {
-    app.listen(www.delightful-red-cap.cyclic.app || 3000, () => {
+    app.listen(3000, () => {
         console.log("listening for requests");
     })
 })
